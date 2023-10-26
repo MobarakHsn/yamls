@@ -15,17 +15,17 @@ spec:
     spec:
       containers:
       - name: pgpool
-        image: pgpool/pgpool:4.2
+        image: pgpool/pgpool:latest
         env:
         - name: POSTGRES_USERNAME
           valueFrom:
             secretKeyRef:
-              name: mypostgres-postgres-secret
+              name: ha-postgres-auth
               key: username
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mypostgres-postgres-secret
+              name: ha-postgres-auth
               key: password
         - name: PGPOOL_PASSWORD_ENCRYPTION_METHOD
           value: "scram-sha-256"
