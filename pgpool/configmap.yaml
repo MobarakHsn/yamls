@@ -15,7 +15,7 @@ data:
     pcp_socket_dir = '/var/run/pgpool'
     backend_hostname0 = 'ha-postgres'
     backend_port0 = 5432
-    backend_weight0 = 0
+    backend_weight0 = 1
     backend_flag0 = 'ALWAYS_PRIMARY|DISALLOW_TO_FAILOVER'
     backend_hostname1 = 'ha-postgres-standby'
     backend_port1 = 5432
@@ -27,7 +27,7 @@ data:
     health_check_period = 0
     backend_clustering_mode = 'streaming_replication'
     num_init_children = 32
-    max_pool = 4
+    max_pool = 5
     child_life_time = 300
     child_max_connections = 0
     connection_life_time = 0
@@ -38,6 +38,9 @@ data:
     enable_pool_hba = on
     failover_on_backend_error = off
     log_min_messages = warning
+    memory_cache_enabled=true
+    memqcache_method='shmem'
+    cache_safe_memqcache_table_list="student.info"
   # If pool_hba.conf isn't configured, Pgpool-II will automatically generate it.
   # Note that to use pool_hba.conf you must set enable_pool_hba = on.
   #pool_hba.conf: |-
