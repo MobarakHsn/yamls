@@ -38,9 +38,6 @@ data:
     enable_pool_hba = on
     failover_on_backend_error = off
     log_min_messages = warning
-    memory_cache_enabled=true
-    memqcache_method='shmem'
-    cache_safe_memqcache_table_list="student.info"
   # If pool_hba.conf isn't configured, Pgpool-II will automatically generate it.
   # Note that to use pool_hba.conf you must set enable_pool_hba = on.
   #pool_hba.conf: |-
