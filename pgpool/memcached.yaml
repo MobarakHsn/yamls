@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mem
+  namespace: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mem
+  template:
+    metadata:
+      labels:
+        app: mem
+    spec:
+      containers:
+        - name: mem
+          image: bitnami/memcached:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mem
+  namespace: demo
+spec:
+  selector:
+    app: mem
+  ports:
+    - name: mem-port
+      protocol: TCP
+      port: 8088
+      targetPort: 8088
