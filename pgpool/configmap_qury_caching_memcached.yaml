@@ -34,14 +34,14 @@ data:
     client_idle_limit = 0
     connection_cache = on
     load_balance_mode = on
-    ssl = off
-    enable_pool_hba = off
+    ssl = on
+    enable_pool_hba = on
     failover_on_backend_error = off
     log_min_messages = warning
     memory_cache_enabled = on
     memqcache_method = 'memcached'
     memqcache_memcached_host = 'localhost'
-    memqcache_memcached_port = 8088
+    memqcache_memcached_port = 11211
     memqcache_oiddir = '/var/lib/pgsql/'
   #    memqcache_expire = 0
   #    memqcache_auto_cache_invalidation = on
