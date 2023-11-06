@@ -36,16 +36,16 @@ spec:
         # The following settings are not required when not using the Pgpool-II PCP command.
         # To enable the following settings, you must define a secret that stores the PCP user's
         # username and password.
-        #- name: PGPOOL_PCP_USER
-        #  valueFrom:
-        #    secretKeyRef:
-        #      name: pgpool-pcp-secret
-        #      key: username
-        #- name: PGPOOL_PCP_PASSWORD
-        #  valueFrom:
-        #    secretKeyRef:
-        #      name: pgpool-pcp-secret
-        #      key: password
+        - name: PGPOOL_PCP_USER
+          valueFrom:
+            secretKeyRef:
+              name: pgpool-pcp-secret
+              key: username
+        - name: PGPOOL_PCP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: pgpool-pcp-secret
+              key: password
         volumeMounts:
         - name: pgpool-config
           mountPath: /config
