@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pgpool-passwd
+  namespace: demo
+  labels:
+    name: pgpool-passwd
+data:
+  pool_passwd: |-
+    name : "mobarak"
