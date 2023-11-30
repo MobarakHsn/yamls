@@ -4,11 +4,24 @@ metadata:
   name: ha-postgres
   namespace: demo
 spec:
+  clientAuthMode: "cert"
   terminationPolicy: WipeOut
   version: "13.2"
-  configSecret:
-    name: pg-configuration
   replicas: 3
+  tls:
+    issuerRef:
+      apiGroup: cert-manager.io
+      name: pg-ca-issuer
+      kind: Issuer
+    certificates:
+      - alias: server
+        subject:
+          organizations:
+            - kubedb:server
+        dnsNames:
+          - localhost
+        ipAddresses:
+          - "127.0.0.1"
   storageType: Durable
   storage:
     storageClassName: "standard"

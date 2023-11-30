@@ -27,10 +27,6 @@ spec:
             secretKeyRef:
               name: ha-postgres-auth
               key: password
-        - name: bob_USERNAME
-          value: "bob"
-        - name: bob_PASSWORD
-          value: "1234"
         - name: PGPOOL_PASSWORD_ENCRYPTION_METHOD
           value: "scram-sha-256"
         - name: PGPOOL_ENABLE_POOL_PASSWD

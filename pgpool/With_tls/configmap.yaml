@@ -19,7 +19,7 @@ data:
     backend_flag0 = 'ALWAYS_PRIMARY|DISALLOW_TO_FAILOVER'
     backend_hostname1 = 'ha-postgres-standby'
     backend_port1 = 5432
-    backend_weight1 = 1
+    backend_weight1 = 2
     backend_flag1 = 'DISALLOW_TO_FAILOVER'
     log_statement = on
     log_per_node_statement = on
@@ -34,17 +34,20 @@ data:
     client_idle_limit = 0
     connection_cache = on
     load_balance_mode = on
-    ssl = on
+    ssl = off
     enable_pool_hba = on
     failover_on_backend_error = off
     log_min_messages = warning
-    statement_level_load_balance = on
-#    memory_cache_enabled = on
-#    memqcache_oiddir = '/var/lib/pgsql/'
+    memory_cache_enabled = on
+    memqcache_oiddir = '/var/lib/pgsql/'
+#    ssl_key = '/opt/pgpool-II/tls/server.key'
+#    ssl_cert = '/opt/pgpool-II/tls/server.crt'
+#    ssl_ca_cert = '/opt/pgpool-II/tls/tls/ca.crt'
+#    statement_level_load_balance = on
   # If pool_hba.conf isn't configured, Pgpool-II will automatically generate it.
   # Note that to use pool_hba.conf you must set enable_pool_hba = on.
-#  pool_hba.conf: |-
-#    host    all    all    all    scram-sha-256
+  pool_hba.conf: |-
+    hostssl    all    all    all    cert
 #    host         local       bob         127.0.0.1/32        md5
 #    host         all         bob         127.0.0.1/32        md5
 #    host         all         postgres    127.0.0.1/32        scram-sha-256
