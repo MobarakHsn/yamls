@@ -1,0 +1,11 @@
+apiVersion: kubedb.com/v1alpha2
+kind: Postgres
+metadata:
+  name: hot-postgres
+  namespace: demo
+spec:
+  version: "13.2"
+  replicas: 3
+  standbyMode: Warm
+  storageType: Ephemeral
+  terminationPolicy: WipeOut

@@ -28,7 +28,7 @@ spec:
               name: ha-postgres-auth
               key: password
         - name: PGPOOL_PASSWORD_ENCRYPTION_METHOD
-          value: "scram-sha-256"
+          value: "md5"
         - name: PGPOOL_ENABLE_POOL_PASSWD
           value: "true"
         - name: PGPOOL_SKIP_PASSWORD_ENCRYPTION

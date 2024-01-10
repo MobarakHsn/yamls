@@ -6,8 +6,6 @@ metadata:
 spec:
   terminationPolicy: WipeOut
   version: "13.2"
-  configSecret:
-    name: pg-configuration
   replicas: 3
   storageType: Durable
   storage:
