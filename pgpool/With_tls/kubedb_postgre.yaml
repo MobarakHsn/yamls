@@ -1,12 +1,12 @@
 apiVersion: kubedb.com/v1alpha2
 kind: Postgres
 metadata:
-  name: ha-postgres
+  name: custom-postgres-1
   namespace: demo
 spec:
   clientAuthMode: "cert"
   terminationPolicy: WipeOut
-  version: "13.2"
+  version: "13.13"
   replicas: 1
   tls:
     issuerRef:

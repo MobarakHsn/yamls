@@ -26,8 +26,8 @@ data:
     sr_check_period = 0
     health_check_period = 0
     backend_clustering_mode = 'streaming_replication'
-    num_init_children = 32
-    max_pool = 5
+    num_init_children = 1
+    max_pool = 15
     child_life_time = 300
     child_max_connections = 0
     connection_life_time = 0

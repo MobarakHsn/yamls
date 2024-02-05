@@ -2,14 +2,14 @@ apiVersion: kubedb.com/v1alpha2
 kind: Postgres
 metadata:
   name: ha-postgres
-  namespace: demo
+  namespace: prom
 spec:
   terminationPolicy: WipeOut
   version: "16.1"
   replicas: 3
   storageType: Durable
   storage:
-    storageClassName: "longhorn"
+    storageClassName: "standard"
     accessModes:
       - ReadWriteOnce
     resources:
